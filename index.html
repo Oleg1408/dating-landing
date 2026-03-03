@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Local Singles</title>
+<title>Black Women Near You Want to Chat</title>
 <style>
   body {
     margin:0;
     font-family: Arial, sans-serif;
-    /* Фон с размытием через локальный файл */
     background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     color:white;
-    text-align:center;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -20,7 +18,7 @@
     position: relative;
   }
 
-  /* Добавляем псевдоэлемент для размытия фона */
+  /* Размытие и затемнение фона */
   body::before {
     content:"";
     position:absolute;
@@ -29,33 +27,40 @@
     width:100%;
     height:100%;
     background: inherit;
-    filter: blur(10px) brightness(0.6);
+    filter: blur(15px) brightness(0.5);
     z-index:0;
   }
 
   .container {
     position: relative;
-    z-index:1; /* чтобы блок был поверх размытого фона */
-    background: rgba(0,0,0,0.6);
-    padding:40px;
+    z-index:1;
+    background: rgba(0,0,0,0.65);
+    padding:40px 30px;
     border-radius:20px;
     max-width:400px;
+    text-align:center;
   }
 
   h1 {
     font-size:26px;
-    margin-bottom:15px;
+    margin-bottom:10px;
   }
 
   p {
     font-size:16px;
+    margin-bottom:20px;
+  }
+
+  .fomo {
+    font-size:14px;
     margin-bottom:25px;
+    color:#ffcc00;
   }
 
   button {
     background: linear-gradient(90deg, #ff3366, #ff9933);
     border:none;
-    padding:15px 30px;
+    padding:15px 35px;
     font-size:18px;
     color:white;
     border-radius:30px;
@@ -67,6 +72,16 @@
     background: linear-gradient(90deg, #ff0055, #ff6600);
   }
 
+  .quiz {
+    display:none;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .quiz button {
+    width:100%;
+  }
+
   a {
     text-decoration:none;
   }
@@ -75,11 +90,35 @@
 
 <body>
 <div class="container">
-  <h1>Meet Local Singles in Your Area</h1>
-  <p>Safe. Private. Start Connecting Today.</p>
-  <a href="https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid">
-    <button>Start Matching</button>
-  </a>
+  <!-- Основной блок -->
+  <h1>Black Women Near You Want to Chat</h1>
+  <p class="fomo">27 women online now. 5 new messages waiting!</p>
+  
+  <!-- Кнопка запуска микро-квиза -->
+  <button id="startBtn">Start Free Chat</button>
+  
+  <!-- Микро-квиз -->
+  <div class="quiz" id="quizDiv">
+    <p>Are you over 21?</p>
+    <button id="yesBtn">YES</button>
+  </div>
 </div>
+
+<script>
+  const startBtn = document.getElementById('startBtn');
+  const quizDiv = document.getElementById('quizDiv');
+  const yesBtn = document.getElementById('yesBtn');
+
+  // При нажатии на Start Free Chat показываем микро-квиз
+  startBtn.onclick = function() {
+    startBtn.style.display = 'none';
+    quizDiv.style.display = 'flex';
+  };
+
+  // При нажатии YES редирект на оффер
+  yesBtn.onclick = function() {
+    window.location.href = "https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid";
+  };
+</script>
 </body>
 </html>
