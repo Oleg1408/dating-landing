@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Black Women Near You Want to Chat</title>
+<title>Single Women Near You Are Online</title>
 <style>
   body {
     margin:0;
@@ -18,7 +18,6 @@
     position: relative;
   }
 
-  /* Размытие и затемнение фона */
   body::before {
     content:"";
     position:absolute;
@@ -48,7 +47,7 @@
 
   p {
     font-size:16px;
-    margin-bottom:20px;
+    margin-bottom:25px;
   }
 
   .fomo {
@@ -72,16 +71,6 @@
     background: linear-gradient(90deg, #ff0055, #ff6600);
   }
 
-  .quiz {
-    display:none;
-    flex-direction:column;
-    gap:20px;
-  }
-
-  .quiz button {
-    width:100%;
-  }
-
   a {
     text-decoration:none;
   }
@@ -90,35 +79,11 @@
 
 <body>
 <div class="container">
-  <!-- Основной блок -->
-  <h1>Black Women Near You Want to Chat</h1>
+  <h1>Single Women Near You Are Online</h1>
   <p class="fomo">27 women online now. 5 new messages waiting!</p>
-  
-  <!-- Кнопка запуска микро-квиза -->
-  <button id="startBtn">Start Free Chat</button>
-  
-  <!-- Микро-квиз -->
-  <div class="quiz" id="quizDiv">
-    <p>Are you over 21?</p>
-    <button id="yesBtn">YES</button>
-  </div>
+  <a href="https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid">
+    <button>Start Free Chat</button>
+  </a>
 </div>
-
-<script>
-  const startBtn = document.getElementById('startBtn');
-  const quizDiv = document.getElementById('quizDiv');
-  const yesBtn = document.getElementById('yesBtn');
-
-  // При нажатии на Start Free Chat показываем микро-квиз
-  startBtn.onclick = function() {
-    startBtn.style.display = 'none';
-    quizDiv.style.display = 'flex';
-  };
-
-  // При нажатии YES редирект на оффер
-  yesBtn.onclick = function() {
-    window.location.href = "https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid";
-  };
-</script>
 </body>
 </html>
