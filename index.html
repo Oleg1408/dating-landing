@@ -8,7 +8,8 @@
   body {
     margin:0;
     font-family: Arial, sans-serif;
-    background: url('https://mnt/data/a_digital_web_landing_page_screenshot_depicts_a_da.png') no-repeat center center fixed;
+    /* Фон с размытием */
+    background: url('https://mnt/data/a_digital_photograph_captures_two_african_american.png') no-repeat center center fixed;
     background-size: cover;
     color:white;
     text-align:center;
@@ -16,10 +17,26 @@
     justify-content:center;
     align-items:center;
     height:100vh;
+    position: relative;
+  }
+
+  /* Добавляем псевдоэлемент для размытия фона */
+  body::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: inherit;
+    filter: blur(10px) brightness(0.6);
+    z-index:0;
   }
 
   .container {
-    background: rgba(0,0,0,0.5);
+    position: relative;
+    z-index:1; /* чтобы блок был поверх размытого фона */
+    background: rgba(0,0,0,0.6);
     padding:40px;
     border-radius:20px;
     max-width:400px;
