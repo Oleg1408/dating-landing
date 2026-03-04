@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Single Women Near You Are Online</title>
+<title>Meet Real Women Near You Tonight</title>
 
 <style>
   body {
@@ -66,9 +66,15 @@
 
   .fomo {
     font-size:16px;
-    margin-bottom:30px;
+    margin-bottom:10px;
     color:#ffcc00;
     font-weight:bold;
+  }
+
+  .subtext {
+    font-size:14px;
+    margin-bottom:30px;
+    opacity:0.85;
   }
 
   button {
@@ -98,10 +104,15 @@
 
 <div class="container">
   <h1>Single Women Near You Are Online</h1>
+  
   <p class="fomo">
-    <span id="online"></span> women online now. 
-    <span id="messages"></span> new messages waiting!
+    <span id="online"></span> women online now
   </p>
+  
+  <p class="subtext">
+    Join the conversation and start chatting instantly.
+  </p>
+
   <a href="https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid">
     <button>Start Free Chat</button>
   </a>
@@ -113,8 +124,7 @@
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  document.getElementById("online").innerText = getRandom(18, 42);
-  document.getElementById("messages").innerText = getRandom(2, 9);
+  document.getElementById("online").innerText = getRandom(20, 38);
 </script>
 
 </body>
