@@ -17,9 +17,10 @@
     align-items:center;
     height:100vh;
     position: relative;
+    overflow:hidden;
   }
 
-  /* Мягкое размытие фона */
+  /* Легкое размытие + затемнение */
   body::before {
     content:"";
     position:absolute;
@@ -28,53 +29,63 @@
     width:100%;
     height:100%;
     background: inherit;
-    filter: blur(8px) brightness(0.65);
+    filter: blur(6px) brightness(0.6);
+    z-index:0;
+  }
+
+  /* Дополнительное затемнение */
+  body::after {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.35);
     z-index:0;
   }
 
   .container {
     position: relative;
     z-index:1;
-    backdrop-filter: blur(6px);
-    background: rgba(0,0,0,0.75);
+    background: linear-gradient(145deg, rgba(0,0,0,0.85), rgba(20,20,20,0.85));
     padding:45px 35px;
-    border-radius:24px;
+    border-radius:25px;
     max-width:420px;
     text-align:center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 40px rgba(0,0,0,0.7),
+                0 0 20px rgba(255,100,100,0.3);
+    backdrop-filter: blur(8px);
   }
 
   h1 {
-    font-size:28px;
-    margin-bottom:12px;
-    font-weight:700;
+    font-size:26px;
+    margin-bottom:15px;
   }
 
   .fomo {
-    font-size:15px;
+    font-size:16px;
     margin-bottom:30px;
-    color:#ffd54f;
-    font-weight:500;
+    color:#ffcc00;
+    font-weight:bold;
   }
 
   button {
     background: linear-gradient(90deg, #ff3366, #ff9933);
     border:none;
     padding:16px 40px;
-    font-size:19px;
-    font-weight:bold;
+    font-size:18px;
     color:white;
-    border-radius:40px;
+    border-radius:30px;
     cursor:pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(255, 80, 100, 0.4);
+    box-shadow: 0 0 20px rgba(255,80,80,0.6);
   }
 
   button:hover {
-    transform: translateY(-3px);
     background: linear-gradient(90deg, #ff0055, #ff6600);
-    box-shadow: 0 15px 35px rgba(255, 80, 100, 0.6);
+    transform: scale(1.05);
   }
 
   a {
@@ -87,11 +98,24 @@
 
 <div class="container">
   <h1>Single Women Near You Are Online</h1>
-  <p class="fomo">27 women online now • 5 new messages waiting</p>
+  <p class="fomo">
+    <span id="online"></span> women online now. 
+    <span id="messages"></span> new messages waiting!
+  </p>
   <a href="https://trk.cloudsecure-dt.com/?a=291369&c=405908&co=354854&mt=21&s2=clickid">
     <button>Start Free Chat</button>
   </a>
 </div>
+
+<script>
+  // Рандомные цифры при каждом заходе
+  function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  document.getElementById("online").innerText = getRandom(18, 42);
+  document.getElementById("messages").innerText = getRandom(2, 9);
+</script>
 
 </body>
 </html>
